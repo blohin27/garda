@@ -21,5 +21,6 @@ WEBSERVER /usr/bin/nginx
 NTP /usr/bin/ntpd
 POSTFIX /usr/bin/postfix
 Надо написать команду линукс, который выведет путь к NTP
+Ответ:
  Путь к NTP из config файла
 grep "^NTP" /home/user1/configuration_params.conf | awk '{ print $2 }'
