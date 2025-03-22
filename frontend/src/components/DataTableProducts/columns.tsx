@@ -1,5 +1,5 @@
 import { GridColDef } from '@mui/x-data-grid'
-import { IProduct } from '../../store/products/types'
+import { IProduct } from '../../store/products/types.ts'
 import { ThumbnailCell } from '../ThumbnailCell'
 
 const columnNames: Record<keyof IProduct, string> = {

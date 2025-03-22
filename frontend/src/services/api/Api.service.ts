@@ -13,13 +13,15 @@ import {
   ApiResponse,
   CancelablePromise,
   IApiService,
-} from './Api.types'
+} from './Api.types.ts'
 import { QueryRace } from './Api.utils.ts'
 
 export const DEFAULT_AXIOS_HEADERS = new AxiosHeaders({
   Accept: 'application/json',
   'Content-Type': 'application/json',
 })
+
+export const VITE_BASE_URL = 'https://dummyjson.com'
 
 export class ApiService<E extends Error | AxiosError<EBody> = AxiosError<unknown>, EBody = unknown>
   implements IApiService<E, EBody>
@@ -115,6 +117,6 @@ export class ApiService<E extends Error | AxiosError<EBody> = AxiosError<unknown
 }
 
 export const apiService = new ApiService(
-  { baseURL: `${import.meta.env.VITE_BASE_URL}/` },
+  { baseURL: `${VITE_BASE_URL}/` },
   (error: AxiosError) => new Error(error.message)
 )

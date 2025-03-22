@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IProductState } from './types'
+import { IProductState } from './types.ts'
 import { fetchProducts } from './productsAsyncThunks.ts'
 
 const initialState: IProductState = {
