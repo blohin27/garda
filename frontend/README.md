@@ -1,54 +1,30 @@
-# React + TypeScript + Vite
+#  Тестовое задание: Таблица с товарами
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Redux Toolkit + TypeScript + Vite
 
-Currently, two official plugins are available:
+## 📋 Условия задания
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Реализовать таблицу с товарами, полученными по запросу с сервера:
 
-## Expanding the ESLint configuration
+🔗 API: [https://dummyjson.com/products](https://dummyjson.com/products)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Функциональные требования:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- ✅ Вывод данных в таблице `TableData`
+- ✅ Данные хранятся в Redux Toolkit slice
+- ✅ Запрос выполняется через `createAsyncThunk`
+- ✅ Slice загружается по требованию (при рендере `TableData`)
+- ✅ Обновление данных каждые 30 секунд
+- ✅ Используется вручную реализованный хук `useInterval(callback, interval)`
+- ✅ Если `interval === null`, обновление не выполняется
+- ✅ На странице есть переключатель (switch) для включения/отключения автообновления
+- ✅ Реализован поиск по полям `title` и `description`
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Как запустить
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+```bash
+cd frontend
+npm install
+npm run dev
