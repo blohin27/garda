@@ -9,6 +9,54 @@ find /home/user1/ -type f | wc -l
 Допустим в каталоге больше 20 файлов.
 Надо вывести названия файлов с 1 по 5, осортированных по времени создания начиная с новых.
 Надо вывести названия файлов с 5 по 10, осортированных по времени создания начиная с новых.
+Имеется папка file в ней имеется 12 файлов
+fil1	fil10	fil11	fil12	fil2	fil3	fil4	fil5	fil6	fil7	fil8	fil89
+1) Команда ls выводит список файлов 
+blohin@MacBook-Pro-blohin file % ls   
+fil1	fil10	fil11	fil12	fil2	fil3	fil4	fil5	fil6	fil7	fil8	fil89
+2) Команда -lt выводит полный формат с сортировкой по времени
+blohin@MacBook-Pro-blohin file % ls -lt
+total 96
+-rw-r--r--  1 blohin  staff  3 24 мар 16:29 fil12
+-rw-r--r--  1 blohin  staff  3 24 мар 16:29 fil11
+-rw-r--r--  1 blohin  staff  3 24 мар 16:28 fil10
+-rw-r--r--  1 blohin  staff  3 24 мар 16:28 fil89
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil8
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil7
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil6
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil5
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil4
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil3
+-rw-r--r--  1 blohin  staff  2 24 мар 16:27 fil2
+-rw-r--r--  1 blohin  staff  3 24 мар 16:27 fil1
+3) Команда tail -n +2 пропускает 1 строку начинаю со второй
+blohin@MacBook-Pro-blohin file % ls -lt | tail -n +2
+-rw-r--r--  1 blohin  staff  3 24 мар 16:29 fil12
+-rw-r--r--  1 blohin  staff  3 24 мар 16:29 fil11
+-rw-r--r--  1 blohin  staff  3 24 мар 16:28 fil10
+-rw-r--r--  1 blohin  staff  3 24 мар 16:28 fil89
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil8
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil7
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil6
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil5
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil4
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil3
+-rw-r--r--  1 blohin  staff  2 24 мар 16:27 fil2
+-rw-r--r--  1 blohin  staff  3 24 мар 16:27 fil1 
+4) Команда head -n 5  5 строк начиная с сверху
+blohin@MacBook-Pro-blohin file % ls -lt | tail -n +2| head -n 5
+-rw-r--r--  1 blohin  staff  3 24 мар 16:29 fil12
+-rw-r--r--  1 blohin  staff  3 24 мар 16:29 fil11
+-rw-r--r--  1 blohin  staff  3 24 мар 16:28 fil10
+-rw-r--r--  1 blohin  staff  3 24 мар 16:28 fil89
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil8
+5) Все предыдущие команды + добавляется в конце tail -n 5, что в свою очередь выводит последние  5 строк 
+blohin@MacBook-Pro-blohin file % ls -lt | tail -n +2 | head -n 10 | tail -n 5
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil7
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil6
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil5
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil4
+-rw-r--r--  1 blohin  staff  2 24 мар 16:28 fil3
 Ответ:
 Файлы с 1 по 5 по времени создания (новые первые)
 ls -lt /home/user1/ | tail -n +2 | head -n 5
