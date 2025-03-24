@@ -11,9 +11,9 @@ find /home/user1/ -type f | wc -l
 Надо вывести названия файлов с 5 по 10, осортированных по времени создания начиная с новых.
 Ответ:
 Файлы с 1 по 5 по времени создания (новые первые)
-ls -lt /home/user1/ | head -n 6 | tail -n 5
+ls -lt /home/user1/ | tail -n +2 | head -n 5
 Файлы с 5 по 10 по времени создания
-ls -lt /home/user1/ | head -n 11 | tail -n 6
+ls -lt /home/user1/ | tail -n +2 | head -n 10 | tail -n 5
 
 Вопрос №3
 Есть такой конфигурационный текстовый файл /home/user1/configuration_params.conf с такими данными: название - путь
